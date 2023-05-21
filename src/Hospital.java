@@ -42,7 +42,7 @@ public class Hospital {
 		
 		if(patient!=null) {
 			patient.setHaveBeenSkipNumber(true);
-			System.out.println(patient.getName()+" 沒來，所以跳號");
+			System.out.println(patient.getName()+" this patient did not come,so we skipped");
 			return patient;
 		}else {
 			System.out.println("the normalQueue is empty");

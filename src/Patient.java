@@ -1,44 +1,40 @@
 import java.util.Queue;
 
-
-
 public class Patient {
-	
-	
+
 	private String name;
-	private boolean firstCheckInOnline=true;        // 預設為true ，代表可以線上註冊
-	private boolean haveBeenSkipNumber=false;       
-	private boolean checkInAgain=false;
-	private boolean haveBeenSeenDoctor=false;
-	
+	private boolean firstCheckInOnline = true; // 嚙緩嚙稽嚙踝蕭true 嚙璀嚙瞇嚙踝蕭嚙箠嚙瘡嚙線嚙磕嚙踝蕭嚙磊
+	private boolean haveBeenSkipNumber = false;
+	private boolean checkInAgain = false;
+	private boolean haveBeenSeenDoctor = false;
+
 	public Patient(String name) {
 		super();
 		this.name = name;
 	}
-	
+
 	public void checkInOnline(Hospital hospital) {
-		
-		if( firstCheckInOnline ) {
-			Queue normalQueue=hospital.getNormalQueue();
-			normalQueue.add( this);
+
+		if (firstCheckInOnline) {
+			Queue normalQueue = hospital.getNormalQueue();
+			normalQueue.add(this);
 			this.setFirstCheckInOnline(false);
-			System.out.println(this.name+" this is your first time to checkinonline");
-		}else {
+			System.out.println(this.name + " this is your first time to checkinonline");
+		} else {
 			System.out.println("you have already checked in online");
 		}
-	
+
 	}
-	
+
 	public void checkInAgain(Hospital hospital) {
-		if( haveBeenSkipNumber &&  checkInAgain ==false  ) {
-			Queue skipQueue=hospital.getSkipQueue();
-			skipQueue.add( this);
-			System.out.println(this.name+ " 已經加到跳號列表中 ");
-		}else {
-			System.out.println(this.name + " 還沒有被跳號過 ");
+		if (haveBeenSkipNumber && checkInAgain == false) {
+			Queue skipQueue = hospital.getSkipQueue();
+			skipQueue.add(this);
+			System.out.println(this.name + " checkin again success ");
+		} else {
+			System.out.println(this.name + " checkin again error because, they have already checked in again");
 		}
-	
-	
+
 	}
 
 	@Override
@@ -85,7 +81,5 @@ public class Patient {
 	public void setHaveBeenSeenDoctor(boolean haveBeenSeenDoctor) {
 		this.haveBeenSeenDoctor = haveBeenSeenDoctor;
 	}
-	
-	
-	
+
 }
